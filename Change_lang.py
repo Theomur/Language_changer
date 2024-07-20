@@ -1,27 +1,42 @@
+import os
+import sys
+import threading
 import time
 
 import keyboard
 import pyautogui
 import pyperclip
-
-# import pystray
+import pystray
 from LanguagesDics import en_alph, eng_to_rus, ru_alph, rus_to_eng
-
-# from PIL import Image
-# from pystray import MenuItem as item
-
-# try:
-#     image = Image.open("icon.png")
-# except Exception as e:
-#     try:
-#         image = Image.open("Language_changer/icon.png")
-#     except Exception as e:
-#         image = Image.open("_internal/icon.png")
+from PIL import Image
+from pystray import MenuItem as item
 
 
-# icon = pystray.Icon("Language change", image, "Language change")
-# icon.menu = pystray.Menu(item("Quit", icon.stop))
-# icon.run()
+def restart_app():
+    python = sys.executable
+    os.execl(python, python, *sys.argv)
+
+
+def stop_app():
+    os._exit(0)
+
+
+def create_tray_icon():
+    try:
+        image = Image.open("icon.png")
+    except Exception as e:
+        try:
+            image = Image.open("Language_changer/icon.png")
+        except Exception as e:
+            image = Image.open("_internal/icon.png")
+
+    icon = pystray.Icon("Language change", image, "Language change")
+    icon.menu = pystray.Menu(item("Restart", restart_app), item("Quit", stop_app))
+    icon.run()
+
+
+tray_thread = threading.Thread(target=create_tray_icon, daemon=True)
+tray_thread.start()
 
 
 def TextNotSelected():
@@ -51,7 +66,10 @@ def logic():
             break
 
     for i in range(0, len(enc_text)):
-        norm_text += dictionary[enc_text[i]]
+        try:
+            norm_text += dictionary[enc_text[i]]
+        except Exception as e:
+            norm_text += enc_text[i]
     keyboard.write(norm_text)
 
 
