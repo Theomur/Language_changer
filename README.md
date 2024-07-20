@@ -20,7 +20,7 @@ You can also turn this thing on and off in taskbar menu, restart the app in case
 
 3. Unzip the project to wherever you like
    
-   ![](C:\Users\user\AppData\Roaming\marktext\images\2024-07-20-19-23-17-image.png)
+   ![](.Readme%20images\msedge_JxE53lFRP5.png)
 
 Now you can look around files and do whatever you would like with them. You don't need anything else for that.
 
@@ -32,13 +32,13 @@ I will explain how to do it on Windows 10/11 using VScode
 
 - install [Python 3.12.4](https://www.python.org/downloads/release/python-3124/) to your system if you haven't done it yet (I used this version, you can install more recent one if you sure it won't broke anything). To do it you need to scroll down to Files section and choose recommended option.
 
-<img title="" src="file:///C:/Users/user/AppData/Roaming/marktext/images/2024-07-20-19-35-25-image.png" alt="" width="520">
+<img title="" src="file:///D:/Code/vsCode/Language_changer/Readme images/msedge_YNdagewliW.png" alt="" width="520">
 
 - Download project and open it in any code editor (VScode in my case). It will underscore a lot of things but we will solve it in a sec.
 
 - Open terminal using buttons on top of VScode or use <Ctrl+Shift+`> shortcut
 
-![](C:\Users\user\AppData\Roaming\marktext\images\2024-07-20-19-42-18-image.png)
+![](.\Readme%20images\Code_yHnJlSlk5j.png)
 
 - In opened terminal check that your path (yellow text) is the same that you expect
 
@@ -56,7 +56,7 @@ source venv/Scripts/activate
 
 You should now have (venv) text under executed commands:
 
-<img src="file:///C:/Users/user/AppData/Roaming/marktext/images/2024-07-20-19-56-31-image.png" title="" alt="" width="451">
+<img title="" src="file:///D:/Code/vsCode/Language_changer/Readme images/Code_BwYlg8CuxZ.png" alt="" width="451">
 
 - In activated venv type following command to get all packages you need to execute this code:
 
@@ -66,15 +66,15 @@ pip install -r requirements.txt
 
 VScode should request to change your workspace folder in bottom right corner. It will change interpreter to the one with all dependences.
 
-![](C:\Users\user\AppData\Roaming\marktext\images\2024-07-20-20-00-21-image.png)
+![](.\Readme%20images\Code_mAFC87KzKo.png)
 
 If it didn't happened - change it yourself by clicking on python version I underscored and changing it to reccomended:
 
-![](C:\Users\user\AppData\Roaming\marktext\images\2024-07-20-20-04-25-image.png)
+![](.\Readme%20images\Code_MPRE258MIB.png)
 
 Now your version should look like this:
 
-![](C:\Users\user\AppData\Roaming\marktext\images\2024-07-20-20-06-10-image.png)
+![](.\Readme%20images\Code_cN0eYkJe1G.png)
 
 If you will launch this code it should work but to make a .EXE file we should do few more steps:
 
