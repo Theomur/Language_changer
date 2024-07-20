@@ -20,7 +20,7 @@ You can also turn this thing on and off in taskbar menu, restart the app in case
 
 3. Unzip the project to wherever you like
    
-   ![](https://github.com/Theomur/Language_changer/blob/main/Readme%20images/Python.png)
+   ![](https://github.com/Theomur/Language_changer/blob/main/Readme%20images/ZIP.png)
 
 Now you can look around files and do whatever you would like with them. You don't need anything else for that.
 
