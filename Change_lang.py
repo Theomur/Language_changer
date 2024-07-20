@@ -90,8 +90,6 @@ def logic():
             except Exception as e:
                 norm_text += enc_text[i]
         keyboard.write(norm_text)
-    else:
-        keyboard.write("never gonna give you up")
 
 
 keyboard.add_hotkey("left ctrl+left alt+right shift+left shift+space", logic)
