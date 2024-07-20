@@ -20,7 +20,7 @@ You can also turn this thing on and off in taskbar menu, restart the app in case
 
 3. Unzip the project to wherever you like
    
-   ![](.\Readme%20images\msedge_JxE53lFRP5.png)
+   ![](https://github.com/Theomur/Language_changer/blob/main/Readme%20images/Python.png)
 
 Now you can look around files and do whatever you would like with them. You don't need anything else for that.
 
@@ -32,13 +32,13 @@ I will explain how to do it on Windows 10/11 using VScode
 
 - install [Python 3.12.4](https://www.python.org/downloads/release/python-3124/) to your system if you haven't done it yet (I used this version, you can install more recent one if you sure it won't broke anything). To do it you need to scroll down to Files section and choose recommended option.
 
-<img title="" src="file:///D:/Code/vsCode/Language_changer/Readme images/msedge_YNdagewliW.png" alt="" width="520">
+<img title="" src="https://github.com/Theomur/Language_changer/blob/main/Readme%20images/Python.png" alt="" width="520">
 
 - Download project and open it in any code editor (VScode in my case). It will underscore a lot of things but we will solve it in a sec.
 
 - Open terminal using buttons on top of VScode or use <Ctrl+Shift+`> shortcut
 
-![](.\Readme%20images\Code_yHnJlSlk5j.png)
+![](https://github.com/Theomur/Language_changer/blob/main/Readme%20images/Terminal.png)
 
 - In opened terminal check that your path (yellow text) is the same that you expect
 
@@ -56,7 +56,7 @@ source venv/Scripts/activate
 
 You should now have (venv) text under executed commands:
 
-<img title="" src="file:///D:/Code/vsCode/Language_changer/Readme images/Code_BwYlg8CuxZ.png" alt="" width="451">
+<img title="" src="https://github.com/Theomur/Language_changer/blob/main/Readme%20images/VENV.png" alt="" width="451">
 
 - In activated venv type following command to get all packages you need to execute this code:
 
@@ -66,15 +66,15 @@ pip install -r requirements.txt
 
 VScode should request to change your workspace folder in bottom right corner. It will change interpreter to the one with all dependences.
 
-![](.\Readme%20images\Code_mAFC87KzKo.png)
+![](https://github.com/Theomur/Language_changer/blob/main/Readme%20images/PIP%20install.png)
 
 If it didn't happened - change it yourself by clicking on python version I underscored and changing it to reccomended:
 
-![](.\Readme%20images\Code_MPRE258MIB.png)
+![](https://github.com/Theomur/Language_changer/blob/main/Readme%20images/PIP%20install%20but%20no.png)
 
 Now your version should look like this:
 
-![](.\Readme%20images\Code_cN0eYkJe1G.png)
+![](https://github.com/Theomur/Language_changer/blob/main/Readme%20images/PY%20venv.png)
 
 If you will launch this code it should work but to make a .EXE file we should do few more steps:
 
