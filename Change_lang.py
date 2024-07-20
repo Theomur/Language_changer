@@ -12,6 +12,12 @@ from PIL import Image
 from pystray import MenuItem as item
 
 
+def toggle_app(icon):
+    global kill_switch_on
+    kill_switch_on = not kill_switch_on
+    icon.icon = icon.icon_on if kill_switch_on else icon.icon_off
+
+
 def restart_app():
     python = sys.executable
     os.execl(python, python, *sys.argv)
@@ -21,17 +27,29 @@ def stop_app():
     os._exit(0)
 
 
+kill_switch_on = True
+
+
 def create_tray_icon():
     try:
-        image = Image.open("icon.png")
+        imageOn = Image.open("iconOn.png")
+        imageOff = Image.open("iconOff.png")
     except Exception as e:
         try:
-            image = Image.open("Language_changer/icon.png")
+            imageOn = Image.open("Language_changer/iconOn.png")
+            imageOff = Image.open("Language_changer/iconOff.png")
         except Exception as e:
-            image = Image.open("_internal/icon.png")
+            imageOn = Image.open("_internal/iconOn.png")
+            imageOff = Image.open("_internal/iconOff.png")
 
-    icon = pystray.Icon("Language change", image, "Language change")
-    icon.menu = pystray.Menu(item("Restart", restart_app), item("Quit", stop_app))
+    icon = pystray.Icon("Language change", imageOn, "Language change")
+    icon.menu = pystray.Menu(
+        item("Toggle", toggle_app, checked=lambda item: kill_switch_on),
+        item("Restart", restart_app),
+        item("Quit", stop_app),
+    )
+    icon.icon_on = imageOn
+    icon.icon_off = imageOff
     icon.run()
 
 
@@ -49,29 +67,32 @@ def TextNotSelected():
 
 
 def logic():
-    if TextNotSelected():
-        pyautogui.hotkey("ctrl", "a")
-    pyautogui.hotkey("ctrl", "x")
+    if kill_switch_on:
+        if TextNotSelected():
+            pyautogui.hotkey("ctrl", "a")
+        pyautogui.hotkey("ctrl", "x")
 
-    enc_text = pyperclip.paste()
-    norm_text = ""
-    dictionary = {}
+        enc_text = pyperclip.paste()
+        norm_text = ""
+        dictionary = {}
 
-    for i in range(0, len(enc_text)):
-        if enc_text[i] in ru_alph and enc_text[i] not in en_alph:
-            dictionary = rus_to_eng
-            break
-        elif enc_text[i] in en_alph and enc_text[i] not in ru_alph:
-            dictionary = eng_to_rus
-            break
+        for i in range(0, len(enc_text)):
+            if enc_text[i] in ru_alph and enc_text[i] not in en_alph:
+                dictionary = rus_to_eng
+                break
+            elif enc_text[i] in en_alph and enc_text[i] not in ru_alph:
+                dictionary = eng_to_rus
+                break
 
-    for i in range(0, len(enc_text)):
-        try:
-            norm_text += dictionary[enc_text[i]]
-        except Exception as e:
-            norm_text += enc_text[i]
-    keyboard.write(norm_text)
+        for i in range(0, len(enc_text)):
+            try:
+                norm_text += dictionary[enc_text[i]]
+            except Exception as e:
+                norm_text += enc_text[i]
+        keyboard.write(norm_text)
+    else:
+        keyboard.write("never gonna give you up")
 
 
 keyboard.add_hotkey("left ctrl+left alt+right shift+left shift+space", logic)
-keyboard.wait("esc")
+keyboard.wait()
