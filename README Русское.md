@@ -20,7 +20,7 @@
 
 3. Распакуйте проект в любое удобное для вас место.
 
-![](https://github.com/Theomur/Language_changer/blob/main/Readme%20images/Python.png)
+![](https://github.com/Theomur/Language_changer/blob/main/Readme%20images/ZIP.png)
 
 Теперь вы можете просматривать файлы и делать с ними всё, что вам нужно. Вам не потребуется ничего дополнительного для этого.
 
