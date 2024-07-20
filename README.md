@@ -15,7 +15,7 @@ You can also turn this thing on and off in taskbar menu, restart the app in case
 ---
 # How to use this app:
 
-- Launch it via code editor.
+- Launch Change_lang.py via code editor.
 
 - Use .exe from /dist folder. 
 
