@@ -1,11 +1,27 @@
-import keyboard
-from PIL import Image
-import pyperclip
-import pyautogui
-import pystray
-from pystray import MenuItem as item
 import time
-from LanguagesDics import eng_to_rus, rus_to_eng, ru_alph, en_alph
+
+import keyboard
+import pyautogui
+import pyperclip
+
+# import pystray
+from LanguagesDics import en_alph, eng_to_rus, ru_alph, rus_to_eng
+
+# from PIL import Image
+# from pystray import MenuItem as item
+
+# try:
+#     image = Image.open("icon.png")
+# except Exception as e:
+#     try:
+#         image = Image.open("Language_changer/icon.png")
+#     except Exception as e:
+#         image = Image.open("_internal/icon.png")
+
+
+# icon = pystray.Icon("Language change", image, "Language change")
+# icon.menu = pystray.Menu(item("Quit", icon.stop))
+# icon.run()
 
 
 def TextNotSelected():
@@ -39,10 +55,5 @@ def logic():
     keyboard.write(norm_text)
 
 
-image = Image.open("Language_changer/icon.png")
-icon = pystray.Icon("Language change", image, "Language change")
-icon.menu = pystray.Menu(item("Quit", icon.stop))
-icon.run()
-
-
 keyboard.add_hotkey("left ctrl+left alt+right shift+left shift+space", logic)
+keyboard.wait("esc")
