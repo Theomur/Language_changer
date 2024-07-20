@@ -20,7 +20,7 @@
 
 3. Распакуйте проект в любое удобное для вас место.
 
-![](C:\Users\user\AppData\Roaming\marktext\images\2024-07-20-19-23-17-image.png)
+![](https://github.com/Theomur/Language_changer/blob/main/Readme%20images/Python.png)
 
 Теперь вы можете просматривать файлы и делать с ними всё, что вам нужно. Вам не потребуется ничего дополнительного для этого.
 
@@ -30,13 +30,15 @@
 
  Я объясню, как это сделать на Windows 10/11, используя VSCode:
 
-- Установите [Python 3.12.4](https://www.python.org/downloads/release/python-3124/) на свою систему, если вы еще этого не сделали (я использовал эту версию, вы можете установить более новую, если уверены, что это не вызовет проблем). Для этого нужно прокрутить вниз до раздела "Files" и выбрать рекомендованный вариант.<img title="" src="file:///C:/Users/user/AppData/Roaming/marktext/images/2024-07-20-19-35-25-image.png" alt="" width="520">
+- Установите [Python 3.12.4](https://www.python.org/downloads/release/python-3124/) на свою систему, если вы еще этого не сделали (я использовал эту версию, вы можете установить более новую, если уверены, что это не вызовет проблем). Для этого нужно прокрутить вниз до раздела "Files" и выбрать рекомендованный вариант.
+
+<img title="" src="https://github.com/Theomur/Language_changer/blob/main/Readme%20images/Python.png" alt="" width="520">
 
 - Скачайте проект и откройте его в любом редакторе кода (в моем случае VScode). Он подчеркнет много вещей, но мы это скоро исправим.
 
 - Откройте терминал, используя кнопки в верхней части VScode или используйте сочетание клавиш <Ctrl+Shift+`>.
 
-![](C:\Users\user\AppData\Roaming\marktext\images\2024-07-20-19-42-18-image.png)
+![](https://github.com/Theomur/Language_changer/blob/main/Readme%20images/Terminal.png)
 
 - В открытом терминале проверьте, что ваш путь (желтый текст) соответствует ожидаемому.
 
@@ -52,7 +54,9 @@ py -m venv venv
 source venv/Scripts/activate
 ```
 
-Теперь под выполненными командами у вас должен появиться текст (venv):<img src="file:///C:/Users/user/AppData/Roaming/marktext/images/2024-07-20-19-56-31-image.png" title="" alt="" width="451">
+Теперь под выполненными командами у вас должен появиться текст (venv):
+
+<img title="" src="https://github.com/Theomur/Language_changer/blob/main/Readme%20images/VENV.png" alt="" width="451">
 
 - В активированном виртуальном окружении введите следующую команду, чтобы установить все пакеты, необходимые для выполнения этого кода:
 
@@ -62,15 +66,15 @@ pip install -r requirements.txt
 
 VScode должен запросить изменение вашей рабочей папки в нижнем правом углу. Это изменит интерпретатор на тот, который содержит все зависимости.
 
-![](C:\Users\user\AppData\Roaming\marktext\images\2024-07-20-20-00-21-image.png)
+![](https://github.com/Theomur/Language_changer/blob/main/Readme%20images/PIP%20install.png)
 
 Если этого не произошло, измените интерпретатор самостоятельно, нажав на версию Python, которую я подчеркнул, и смените ее на рекомендованную:
 
-![](C:\Users\user\AppData\Roaming\marktext\images\2024-07-20-20-04-25-image.png)
+![](https://github.com/Theomur/Language_changer/blob/main/Readme%20images/PIP%20install%20but%20no.png)
 
 Теперь ваша версия должна выглядеть так:
 
-![](C:\Users\user\AppData\Roaming\marktext\images\2024-07-20-20-06-10-image.png)
+![](https://github.com/Theomur/Language_changer/blob/main/Readme%20images/PY%20venv.png)
 
 Если вы запустите этот код, он должен работать, но чтобы создать файл .EXE, нам нужно выполнить еще несколько шагов:
 
