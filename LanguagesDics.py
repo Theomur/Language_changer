@@ -5,7 +5,25 @@ en_alph = (
     """qwertyuiop[]\\asdfghjkl;'zxcvbnm,./QWERTYUIOP{}|ASDFGHJKL:"ZXCVBNM<>? ~!@#$%^&"""
 )
 
+
+# this piece is to generate dictionaries
+temp_dic = {}
+for i in range(0, len(ru_alph)):
+    temp_dic[ru_alph[i]] = en_alph[i]
+print(temp_dic)
+
+
 rus_to_eng = {
+    "0": "0",
+    "1": "1",
+    "2": "2",
+    "3": "3",
+    "4": "4",
+    "5": "5",
+    "6": "6",
+    "7": "7",
+    "8": "8",
+    "9": "9",
     " ": " ",
     "й": "q",
     "ц": "w",
@@ -86,6 +104,16 @@ rus_to_eng = {
 }
 
 eng_to_rus = {
+    "0": "0",
+    "1": "1",
+    "2": "2",
+    "3": "3",
+    "4": "4",
+    "5": "5",
+    "6": "6",
+    "7": "7",
+    "8": "8",
+    "9": "9",
     " ": " ",
     "q": "й",
     "w": "ц",
