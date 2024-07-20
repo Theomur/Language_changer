@@ -20,7 +20,7 @@ You can also turn this thing on and off in taskbar menu, restart the app in case
 
 3. Unzip the project to wherever you like
    
-   ![](.Readme%20images\msedge_JxE53lFRP5.png)
+   ![](.\Readme%20images\msedge_JxE53lFRP5.png)
 
 Now you can look around files and do whatever you would like with them. You don't need anything else for that.
 
