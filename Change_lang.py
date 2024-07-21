@@ -7,9 +7,13 @@ import keyboard
 import pyautogui
 import pyperclip
 import pystray
-from LanguagesDics import en_alph, eng_to_rus, ru_alph, rus_to_eng
 from PIL import Image
 from pystray import MenuItem as item
+
+from LanguagesDics import en_alph, eng_to_rus, ru_alph, rus_to_eng
+
+kill_switch_on = True
+default_shortcut = "left ctrl+left alt+right shift+left shift+space"
 
 
 def toggle_app(icon):
@@ -25,9 +29,6 @@ def restart_app():
 
 def stop_app():
     os._exit(0)
-
-
-kill_switch_on = True
 
 
 def create_tray_icon():
@@ -92,5 +93,7 @@ def logic():
         keyboard.write(norm_text)
 
 
-keyboard.add_hotkey("left ctrl+left alt+right shift+left shift+space", logic)
+shortcut = "ctrl+alt+shift"  # ToDo - make it customisable
+
+keyboard.add_hotkey(shortcut, logic)
 keyboard.wait()
