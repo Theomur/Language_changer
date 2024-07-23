@@ -2,6 +2,7 @@ import os
 import sys
 import threading
 import time
+from tkinter import messagebox
 
 import keyboard
 import pyautogui
@@ -13,6 +14,27 @@ from pystray import MenuItem as item
 
 kill_switch_on = True
 default_shortcut = "left ctrl+left alt+right shift+left shift+space"
+shortcut = ""
+
+try:
+    shortcut_file = open("shortcut.txt", "r+")
+    filename = "shortcut.txt"
+except Exception as e:
+    try:
+        shortcut_file = open("Language_changer/shortcut.txt", "r+")
+        filename = "Language_changer/shortcut.txt"
+    except Exception as e:
+        shortcut_file = open("_internal/shortcut.txt", "r+")
+        filename = "_internal/shortcut.txt"
+shortcut_file.close()
+
+with open(filename, "r+") as f:
+    data = f.read()
+    if data:
+        shortcut = data
+    else:
+        shortcut = default_shortcut
+        f.write(shortcut)
 
 
 def toggle_app(icon):
@@ -26,7 +48,65 @@ def restart_app():
     os.execl(python, python, *sys.argv)
 
 
+def shortcut_setup():
+    global shortcut
+
+    result1 = messagebox.askokcancel(
+        "Hotkey setup",
+        f"Are you sure, that you want to change your hotkey for Language_change? Your current hotkey :\n{shortcut}",
+    )
+
+    if result1:
+        while True:
+            shortcut = ""
+            recorded_keys = []
+
+            def on_key_event(event):
+                name = event.name
+                if event.event_type == "down":
+                    if event.scan_code == 42:
+                        name = "left shift"
+                    elif event.scan_code == 54:
+                        name = "right shift"
+                    elif event.scan_code == 56:
+                        name = "left alt"
+                    elif event.scan_code == 3640:
+                        name = "right alt"
+                    elif event.scan_code == 29:
+                        name = "left ctrl"
+                    elif event.scan_code == 3613:
+                        name = "right ctrl"
+                    if name not in recorded_keys and name != "esc":
+                        recorded_keys.append(name)
+
+            recorded_keys.clear()
+            keyboard.hook(on_key_event)
+
+            result2 = messagebox.showinfo(
+                "Hotkey setup",
+                "Please enter your hotkey sequence.\n(press buttons one by one, not all of them at the same time)\nPress ok when you finish",
+            )
+            if result2:
+                keyboard.unhook_all()
+
+            shortcut = "+".join(recorded_keys)
+
+            result3 = messagebox.askyesno(
+                "Hotkey setup",
+                f"Your new hotkey is:\n{shortcut}\nAre you sure you want to save it?",
+            )
+
+            if result3:
+                with open(filename, "w") as f:
+                    f.write(shortcut)
+                break
+        restart_app()
+    else:
+        return
+
+
 def stop_app():
+    shortcut_file.close()
     os._exit(0)
 
 
@@ -45,6 +125,7 @@ def create_tray_icon():
     icon = pystray.Icon("Language change", imageOn, "Language change")
     icon.menu = pystray.Menu(
         item("Toggle", toggle_app, checked=lambda item: kill_switch_on),
+        item("Hotkey setup", shortcut_setup),
         item("Restart", restart_app),
         item("Quit", stop_app),
     )
@@ -67,8 +148,8 @@ def TextNotSelected():
 
 
 def logic():
-    print("triggered")
     if kill_switch_on:
+        print("triggered")
         if TextNotSelected():
             pyautogui.hotkey("ctrl", "a")
         pyautogui.hotkey("ctrl", "x")
@@ -96,7 +177,5 @@ def logic():
         keyboard.write(norm_text)
 
 
-shortcut = "ctrl+alt+shift"  # ToDo - make it customisable
-
-keyboard.add_hotkey(default_shortcut, logic)
+keyboard.add_hotkey(shortcut, logic)
 keyboard.wait()

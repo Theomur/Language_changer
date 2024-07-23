@@ -5,7 +5,7 @@ a = Analysis(
     ['Change_lang.py'],
     pathex=[],
     binaries=[],
-    datas=[('iconOn.png', '.'), ('iconOff.png', '.')],
+    datas=[('iconOn.png', '.'), ('iconOff.png', '.'), ('shortcut.txt', '.')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
