@@ -7,10 +7,9 @@ import keyboard
 import pyautogui
 import pyperclip
 import pystray
+from LanguagesDics import en_alph, eng_to_rus, ru_alph, rus_to_eng
 from PIL import Image
 from pystray import MenuItem as item
-
-from LanguagesDics import en_alph, eng_to_rus, ru_alph, rus_to_eng
 
 kill_switch_on = True
 default_shortcut = "left ctrl+left alt+right shift+left shift+space"
@@ -81,15 +80,18 @@ def logic():
         for i in range(0, len(enc_text)):
             if enc_text[i] in ru_alph and enc_text[i] not in en_alph:
                 dictionary = rus_to_eng
+                pyautogui.hotkey("win", "space")
                 break
             elif enc_text[i] in en_alph and enc_text[i] not in ru_alph:
                 dictionary = eng_to_rus
+                pyautogui.hotkey("win", "space")
                 break
 
         for i in range(0, len(enc_text)):
             try:
                 norm_text += dictionary[enc_text[i]]
             except Exception as e:
+                print(e)
                 norm_text += enc_text[i]
         keyboard.write(norm_text)
 
