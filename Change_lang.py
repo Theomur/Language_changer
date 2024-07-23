@@ -68,6 +68,7 @@ def TextNotSelected():
 
 
 def logic():
+    print("triggered")
     if kill_switch_on:
         if TextNotSelected():
             pyautogui.hotkey("ctrl", "a")
@@ -95,5 +96,5 @@ def logic():
 
 shortcut = "ctrl+alt+shift"  # ToDo - make it customisable
 
-keyboard.add_hotkey(shortcut, logic)
+keyboard.add_hotkey(default_shortcut, logic)
 keyboard.wait()
